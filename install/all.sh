@@ -3,13 +3,13 @@
 # First, install the system if necessary
 ./system.sh
 
-# Link in dotfiles first so that yaourt will be properly configured
-./link-dots.sh
-./resources.sh
-
 # Then link in all of the dot files and scripts
+./link-dots.sh
 ./link-scripts.sh
 ./link-configs.sh
+
+# Install resource software
+./resources.sh
 
 # Do some application-specific config
 ./bar.sh
@@ -18,4 +18,5 @@
 ./systemd.sh
 
 # Be done
+archey3
 echo "Installation complete!"
