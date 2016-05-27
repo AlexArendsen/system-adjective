@@ -1,0 +1,10 @@
+[Unit]
+Description=Dunst notification daemon
+After=display-manager.service
+
+[Service]
+Environment=DISPLAY=:0
+ExecStart=/usr/bin/dunst
+
+[Install]
+WantedBy=default.target
