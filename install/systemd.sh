@@ -12,12 +12,12 @@ for uf in ../systemd/user/*; do
   fi
   if [[ "${replace}" == "y" ]]; then
     echo "Linking ${fname}..."
-    ln -fs "${uf}" /usr/lib/systemd/user/
+    sudo ln -fs "${uf}" /usr/lib/systemd/user/
     echo -n "Would you like to enable ${fname}? [yN]: "
     read -r en
     if [[ "${en}" == "y" ]]; then
-      systemctl --user enable ${fname}
-      systemctl --user start ${fname}
+      sudo systemctl --user enable ${fname}
+      sudo systemctl --user start ${fname}
     fi
   fi
 done
