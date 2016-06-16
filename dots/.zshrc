@@ -66,6 +66,10 @@ alias vol='lemonvol'
 alias mute='lemonvol M'
 alias bl='xbacklight -set'
 alias clock='date +%c'
+alias rm='safe-rm'
+
+alias cb='xclip -selection clipboard'
+alias toriel='nctlup toriel'
 
 # Print battery percentage on startup
 echo -e " Battery `batpct`"
