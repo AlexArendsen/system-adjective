@@ -2,10 +2,13 @@
 
 echo "Linking .config..."
 
+mkdir -p "$HOME/.config/"
+
 for f in ../config/*/; do
   dirname=$(basename ${f})
   replace=y
-  if [[ -e "$HOME/.config/$dirname" ]]; then
+  if [[ -e "$HOME/.config/${dirname}" ]]; then
+    mkdir -p "$HOME/.config/${dirname}"
     replace=n
     echo -n "Configuration for ${dirname} already exists. Replace it? [yN]: "
     read -r replace

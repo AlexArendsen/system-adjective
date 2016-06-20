@@ -1,15 +1,16 @@
 #!/bin/bash
 
 echo "Now linking in utility scripts"
+
 if [[ -e "$HOME/sbin" ]]; then
   echo -n "/usr/local/sbin is already linked in your home directory. Is it okay to re-link sbin? [yN]: "
   read -r cont
+  if [[ "${cont}" != "y" ]]; then
+    echo "Script linking aborted"
+    exit 1
+  fi
 fi
 
-if [[ "${cont}" != "y" ]]; then
-  echo "Script linking aborted"
-  exit 1
-fi
 
 user=$(whoami)
 group=$(id -g -n "${user}")
