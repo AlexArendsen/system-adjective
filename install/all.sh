@@ -6,7 +6,7 @@
 # Then link in all of the dot files and scripts
 ./link-dots.sh
 ./link-scripts.sh
-./link-configs.sh
+./link-others.sh
 
 # Install resource software
 ./resources.sh
@@ -15,7 +15,7 @@
 ./bar.sh
 ./vim.sh
 ./zsh.sh
-./systemd.sh
+# ./systemd.sh # Disabled for now since I don't have an unit files specified
 
 # Be done
 archey3

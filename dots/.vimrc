@@ -6,8 +6,7 @@ set expandtab
 set smartindent
 set nocompatible
 set magic
-highlight LineNr ctermfg=darkgrey
-set fillchars+=vert:\ 
+set fillchars+=vert:█
 color default
 
 " Set the runtime path to include Vundle and initialize
@@ -27,7 +26,6 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'majutsushi/tagbar'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'junegunn/goyo.vim'
 Plugin 'tommcdo/vim-exchange'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
@@ -105,3 +103,8 @@ nnoremap <Leader>tag :Tagbar<CR>:wincmd l<CR>
 
 " Quick replace-all
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+
+" Color Scheme Modifications
+highlight LineNr ctermfg=darkgrey
+highlight VertSplit ctermbg=black
