@@ -5,8 +5,14 @@ if [[ -z "$(pacman -Qs yaourt)" ]]; then
   exit 1
 fi
 
-yaourt -S --needed xorg-server xorg-xinit feh rofi ttf-font-awesome powerline-fonts-git pulseaudio pulseaudio-ctl noto-fonts conky python-pip xorg-xrandr i3-gaps-git python-i3-git xorg-xprop vim lemonbar-xft-git zsh rxvt-unicode archey3
+yaourt -S --needed xorg-server xorg-xinit feh rofi ttf-font-awesome powerline-fonts-git pulseaudio pulseaudio-ctl noto-fonts conky xorg-xrandr i3-gaps-git python-i3-git xorg-xprop neovim lemonbar-xft-git zsh rxvt-unicode archey3 dunst
 
-sudo pip install powerline-status
-pldir=$(pip show powerline-status | grep Location | sed -e 's/Location: //g')
-ln -fs "${pldir}" "$HOME/powerline"
+mkdir -p "$HOME/.fonts"
+if [[ ! "$(fc-match "Knack Nerd Font")" =~ "Knack" ]]; then
+  echo "Installing Hack Powerline font..."
+  wget https://github.com/ryanoasis/nerd-fonts/blob/master/patched-fonts/Hack/Bold/complete/Knack%20Bold%20Nerd%20Font%20Complete%20Mono.ttf -O "$HOME/.fonts/knackttf"
+  xset fp rehash
+  fc-cache -f ~/.fonts
+else
+  echo "Hack Powerline font already installed."
+fi

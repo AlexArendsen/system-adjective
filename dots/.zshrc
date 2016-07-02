@@ -37,6 +37,9 @@ zstyle ':vcs_info:git:*' formats "$(branch) %b "
 # Git flow completion
 source ~/.zsh/git-flow-completion/git-flow-completion.zsh
 
+# RVM
+source ~/.profile
+
 # Colorization
 autoload -Uz colors && colors
 
@@ -71,5 +74,9 @@ alias rm='safe-rm'
 alias cb='xclip -selection clipboard'
 alias toriel='nctlup toriel'
 
+alias vim='nvim'
+
 # Print battery percentage on startup
 echo -e " Battery `batpct`"
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting

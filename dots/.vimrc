@@ -13,8 +13,6 @@ color default
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
-let $PYTHONPATH="/usr/lib/python3.5/site-packages"
-
 " let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
 Plugin 'mattn/emmet-vim'
@@ -26,20 +24,22 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'majutsushi/tagbar'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'tommcdo/vim-exchange'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tbastos/vim-lua'
+Plugin 'bling/vim-airline'
+Plugin 'ryanoasis/vim-devicons'
+Plugin 'morhetz/gruvbox'
+Plugin 'haskell.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'floobits/floobits-neovim'
 
 call vundle#end()
 
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
-set laststatus=2
-
+" General Config
 filetype off
 syntax on
+set scrolloff=8
 
 " Syntastic configuration
 let g:syntastic_always_populate_loc_list = 1
@@ -57,11 +57,19 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-o>"
 let g:UltiSnipsJumpBackwardTrigger="<c-i>"
 
+" Airline Config
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" Python Config
+let g:python_host_prog = '/usr/bin/python2'
+let g:python3_host_provider = '/usr/bin/python3'
 
 " == Custom keybindings
 let mapleader='m'
 " map <C-t> :tabnew<CR>:Startify<CR>
-map <C-w> :q<CR>
+map <C-w> :bd<CR>
 map <C-x> :tabn<CR>
 map <C-z> :tabp<CR>
 
@@ -87,7 +95,11 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " Life-changers
 map <space> :
 imap kj <ESC>
+imap kq <ESC>A
 vmap vkj <ESC>
+
+" Highlight Killer
+nnoremap <Leader>hl :nohl<CR>
 
 " Disable Arrow keys in normal mode
 nnoremap <Left> <NOP>
@@ -100,11 +112,20 @@ nnoremap <Leader>e :NERDTreeTabsToggle<CR>
 nnoremap vimr :tabnew ~/.vimrc<CR>
 nnoremap <Leader>xr :tabnew ~/.Xresources<CR>
 nnoremap <Leader>tag :Tagbar<CR>:wincmd l<CR>
+" Floobits
+nmap mff :FlooFollowUser<CR>
+nmap mfu :FlooToggleFollowMode<CR>
+nmap mfs :FlooSummon<CR>
+nmap mfc :FlooSaySomething 
+nmap mfj :FlooJoinWorkspace 
 
 " Quick replace-all
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
-
 " Color Scheme Modifications
+set background=dark
+let g:gruvbox_contrast_dark="soft"
+colorscheme gruvbox
 highlight LineNr ctermfg=darkgrey
 highlight VertSplit ctermbg=black
+

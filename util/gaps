@@ -3,7 +3,7 @@
 case $1 in
   focus)
     i3 gaps outer current set 0
-    i3 gaps inner current set 4
+    i3 gaps inner current set 8
     ;;
   pretty)
     i3 gaps outer current set 64

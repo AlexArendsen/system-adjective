@@ -21,6 +21,8 @@ if [[ -e "$HOME/Development/electrobar" ]]; then
   fi
 fi
 
+mkdir -p "$HOME/Development"
+
 if [[ "${replace}" == "y" ]]; then
   cd "$HOME/Development/"
   git clone https://github.com/AlexArendsen/electrobar.git
