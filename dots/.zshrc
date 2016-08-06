@@ -76,6 +76,9 @@ alias toriel='nctlup toriel'
 
 alias vim='nvim'
 
+alias gst='git status'
+alias gd='git diff'
+
 # Print battery percentage on startup
 echo -e " Battery `batpct`"
 

@@ -15,7 +15,6 @@ call vundle#begin()
 
 " let Vundle manage Vundle
 Plugin 'gmarik/Vundle.vim'
-Plugin 'mattn/emmet-vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'scrooloose/nerdtree'
 Plugin 'tpope/vim-surround'
@@ -24,7 +23,6 @@ Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'majutsushi/tagbar'
 Plugin 'jistr/vim-nerdtree-tabs'
-Plugin 'airblade/vim-gitgutter'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tbastos/vim-lua'
 Plugin 'bling/vim-airline'
@@ -40,12 +38,16 @@ call vundle#end()
 filetype off
 syntax on
 set scrolloff=8
+set synmaxcol=120
 
 " Syntastic configuration
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map = {
+  \ "mode": "active",
+  \ "passive_filetypes": ['scss'] }
 highlight SpellBad ctermbg=darkred guibg=darkred
 highlight SpellCap ctermbg=darkred guibg=darkred
 
@@ -95,8 +97,10 @@ vnoremap <C-k> :m '<-2<CR>gv=gv
 " Life-changers
 map <space> :
 imap kj <ESC>
-imap kq <ESC>A
 vmap vkj <ESC>
+
+" Life-improvers
+nmap - ^
 
 " Highlight Killer
 nnoremap <Leader>hl :nohl<CR>
@@ -112,12 +116,14 @@ nnoremap <Leader>e :NERDTreeTabsToggle<CR>
 nnoremap vimr :tabnew ~/.vimrc<CR>
 nnoremap <Leader>xr :tabnew ~/.Xresources<CR>
 nnoremap <Leader>tag :Tagbar<CR>:wincmd l<CR>
+
 " Floobits
 nmap mff :FlooFollowUser<CR>
-nmap mfu :FlooToggleFollowMode<CR>
+nmap mft :FlooToggleFollowMode<CR>
 nmap mfs :FlooSummon<CR>
 nmap mfc :FlooSaySomething 
 nmap mfj :FlooJoinWorkspace 
+nmap mfl :FlooLeaveWorkspace<CR>
 
 " Quick replace-all
 nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
