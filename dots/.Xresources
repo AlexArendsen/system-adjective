@@ -1,4 +1,4 @@
-*font: xft:Knack Nerd Font:style=Bold:size=10
+*font: xft:Knack Nerd Font:style=Medium:size=10
 *scrollBar: false
 Xcursor.theme: Breeze-Obsidian
 
@@ -30,3 +30,10 @@ Xcursor.theme: Breeze-Obsidian
 !white
 *color7:    #dbae93
 *color15:   #fbf1c7
+
+! --- Rofi Colors
+rofi.color-normal: #282828, #ebdbb2, #282828, #363636, #fbf1c7
+rofi.color-urgent: #282828, #ebdbb2, #282828, #665c54, #fbf1c7
+rofi.color-active: #282828, #ebdbb2, #282828, #665c54, #fbf1c7
+
+rofi.color-window: #282828, #282828

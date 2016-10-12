@@ -5,6 +5,7 @@ update-wallpaper
 pulseaudio --start
 reshift &
 dunst &
+urxvtd &
 setxkbdmap -option compose:menu
 xfce4-power-manager &
 exec i3

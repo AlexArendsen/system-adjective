@@ -75,11 +75,43 @@ alias cb='xclip -selection clipboard'
 alias toriel='nctlup toriel'
 
 alias vim='nvim'
+alias vimr='nvim ~/.vimrc'
 
 alias gst='git status'
 alias gd='git diff'
+
+alias ne='sudo netctl edit'
+alias nu='nctlup'
+alias nc='nctlcon'
+ns() {
+  if [[ -z "$1" ]]; then
+    iwgetid -r
+  else
+    sudo netctl status "$1"
+  fi
+}
+
+alias open='xdg-open . 2> /dev/null &'
+
+alias lock='i3lock-fancy'
+
+alias yaourt='pacaur'
+alias pa='pacaur'
+alias pas='pacaur -S'
+
+source ~/.zsh_profile
+
+# Jump script
+j() {
+  if [[ ! -e "$HOME/.jumps/$1" ]]; then
+    echo "$1: No such jump"
+  else
+    cd $(realpath $HOME/.jumps/$1)
+  fi
+}
 
 # Print battery percentage on startup
 echo -e " Battery `batpct`"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+eval "$(rbenv init -)"

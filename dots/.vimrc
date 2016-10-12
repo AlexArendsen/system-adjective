@@ -26,11 +26,12 @@ Plugin 'jistr/vim-nerdtree-tabs'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tbastos/vim-lua'
 Plugin 'bling/vim-airline'
-Plugin 'ryanoasis/vim-devicons'
+" Plugin 'ryanoasis/vim-devicons'
 Plugin 'morhetz/gruvbox'
 Plugin 'haskell.vim'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'floobits/floobits-neovim'
+Plugin 'racer-rust/vim-racer'
 
 call vundle#end()
 
@@ -38,7 +39,7 @@ call vundle#end()
 filetype off
 syntax on
 set scrolloff=8
-set synmaxcol=120
+set synmaxcol=256
 
 " Syntastic configuration
 let g:syntastic_always_populate_loc_list = 1
@@ -63,6 +64,7 @@ let g:UltiSnipsJumpBackwardTrigger="<c-i>"
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
+let g:ailine_theme='one'
 
 " Python Config
 let g:python_host_prog = '/usr/bin/python2'
@@ -130,7 +132,7 @@ nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
 
 " Color Scheme Modifications
 set background=dark
-let g:gruvbox_contrast_dark="soft"
+" let g:gruvbox_contrast_dark="soft"
 colorscheme gruvbox
 highlight LineNr ctermfg=darkgrey
 highlight VertSplit ctermbg=black
